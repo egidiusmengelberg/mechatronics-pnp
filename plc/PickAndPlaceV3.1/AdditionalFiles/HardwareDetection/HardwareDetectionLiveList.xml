@@ -1,0 +1,26 @@
+<OnlineDevices>
+  <OnlineDevice VendorID="2A" DeviceID="51B" TypeID="2A051B" DeviceType="SINAMICS S210">
+    <DeviceRole>Device</DeviceRole>
+    <NameOfStation>s210-120-kast2</NameOfStation>
+    <MacAddress>00-1C-06-81-AA-54</MacAddress>
+    <IPAddress>192.168.0.23</IPAddress>
+  </OnlineDevice>
+  <OnlineDevice VendorID="2A" DeviceID="51B" TypeID="2A051B" DeviceType="SINAMICS S210">
+    <DeviceRole>Device</DeviceRole>
+    <NameOfStation>s210-000-kast2</NameOfStation>
+    <MacAddress>00-1C-06-81-AA-7B</MacAddress>
+    <IPAddress>192.168.0.22</IPAddress>
+  </OnlineDevice>
+  <OnlineDevice VendorID="2A" DeviceID="51B" TypeID="2A051B" DeviceType="SINAMICS S210">
+    <DeviceRole>Device</DeviceRole>
+    <NameOfStation>s210-240-kast2</NameOfStation>
+    <MacAddress>00-1C-06-81-AA-48</MacAddress>
+    <IPAddress>192.168.0.24</IPAddress>
+  </OnlineDevice>
+  <OnlineDevice VendorID="2A" DeviceID="313" TypeID="2A0313" DeviceType="ET200SP">
+    <DeviceRole>Device</DeviceRole>
+    <NameOfStation>et200sp-kast2</NameOfStation>
+    <MacAddress>EC-1C-5D-99-5D-BA</MacAddress>
+    <IPAddress>192.168.0.25</IPAddress>
+  </OnlineDevice>
+</OnlineDevices>
