@@ -55,17 +55,17 @@ while True:
                 box = cv2.boxPoints(rect)
                 box = np.int0(box)
 
-                angle = int(rect[2])
+                hoek = int(rect[2])
                 center = (int(rect[0][0]),int(rect[0][1])) 
                 width = int(rect[1][0])
                 height = int(rect[1][1])
 
                 if width < height:
-                    angle = 90 - angle
+                    hoek = 90 - hoek
                 else:
-                    angle = -angle
+                    hoek = -hoek
 
-                label = "  Rotation Angle: " + str(angle) + " degrees"
+                label = str(hoek) + "graden"
  
                 # Zoek het middelpunt
                 midden = middelpunt(contour)
@@ -74,12 +74,11 @@ while True:
 
                     cv2.circle(img, (cX, cY), 7, (255, 255, 255), -1) # teken een cirkel op het middelpunt
                     #cv2.putText(img, color_name, (cX - 20, cY - 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2) # laat de kleur naam zien
-                    cv2.putText(img, str(midden) , (cX - 20, cY - 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (1100, 100, 255), 2)
-                    cv2.putText(img, label , (cX - 20, cY - 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (100, 100, 255), 2)
+                    cv2.putText(img, str(midden) , (cX, cY + 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (100, 100, 255), 2)
+                    cv2.putText(img, label , (cX + 20 , cY), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (100, 100, 255), 2)
 
 
     cv2.imshow('Beeld1', img)
-    cv2.imshow('Beeld2', hsv)
     
     if(cv2.waitKey(10) == 27):
         break
