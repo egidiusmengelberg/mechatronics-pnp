@@ -29,6 +29,8 @@
 #include <SPI.h>
 #include <Ethernet.h>
 
+#define Soundin PF4
+
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xDE };
 IPAddress ipW5500(192, 168, 0, 177);                 // IP address van de W5500
 // Let op: IP-adres (192, 168, 0, 1) kan wel eens problemen geven bij simulatie
@@ -59,6 +61,10 @@ void setup() {
   Serial.println("connecting...");
   if (clientW5500.connect(ipPLCserver, serverPoort)) Serial.println("connected");  // to server
   else Serial.println("connection failed");                                        // no connection to server
+
+  DDRD |= (1<<4);
+  DDRF &= ~(1<<Soundin);
+  PORTD &= (1<<4);
 }
 
 uint8_t bytes[8];                                    // ruimte voor de 8 bytes van de LREAL van de PLC
@@ -72,6 +78,9 @@ void loop() {
     byte c = clientW5500.read();                     // 1 van de 8 bytes van de LREAL wordt ingelezen
     bytes[7-i]=c;                                    // vul array met de 8 ontvangen bytes en swap wegens
     i += 1;                                          // little endian/big endian
+  }
+  if ( PINF & (1<<Soundin)){
+    PORTD |= 0x10;
   }
   if (i == 8) {
     // Maak van een LReal van 8 bytes een Real (float in Arduino) van 4 bytes omdat in Arduino
