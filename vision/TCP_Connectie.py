@@ -88,7 +88,7 @@ def O_out(d, plc):
      write_lreal_db(18, 26.0, d, plc)# stuurt o (hoek)
 
 def ID_out(e, plc):
-     write_lreal_db(18, 34.0, e, plc)# stuurt ID van het puzzelstukje
+     write_int_db(18, 34.0, e, plc)# stuurt ID van het puzzelstukje
 
 def send_CMD(plc, a, b, d, e):
     XYZO_ID(plc)
